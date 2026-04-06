@@ -1,0 +1,18 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+    
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "js-msa4", // 이름 지정
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${file}" // 경로. 포커스 하고있는 파일을 디버깅 지정하겠다 라는뜻
+        }
+    ]
+}

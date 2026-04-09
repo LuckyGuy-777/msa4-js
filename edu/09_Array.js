@@ -128,6 +128,132 @@ console.log(arr, resultArr)
 arr = [1,2,3,4,5];
 resultArr= arr.join(', ');
 console.log(arr, resultArr)
+
+
+
+// Array.sort( ) 배열반환, 원본변경
+// 배열의 요소를 "문자열로 변환 후", "오름차순 정렬"을 하고, 정렬한 배열을 "반환"
+// 문자를 정렬하기 위해 만들어진 메서드.
+arr = [6,4,7,1,11];
+// 작동예시
+//  (a - b)가 양수 일경우, a가 큰수, b가 작은수로 인식하여 정렬
+//  (a - b)가 음수 일경우, a가 작은수, b가 큰수로 인식하여 정렬
+//  (a - b)가 0일 경우, 같은 값으로 인식하여 정렬
+resultArr = arr.sort((a,b) => a - b); // 숫자비교 할때는, 콜백함수를 줘야함
+console.log(arr,resultArr)
+
+
+
+
+//  # 중요 # 다른건 잊어도 이건 기억하자.
+// Array.map( 콜백함수 ) 
+// 배열을 반환함. 기존 원본은 유지됨
+// * 배열의 모든요소에 대해 콜백함수를 반복실행 한 후,
+// 콜백 함수의 리턴 값들을 모아서, 새로운 배열을 반환함.
+// 모든 배열에 대해 루프를 돌림. 루프마다 콜백함수를 돌림. val는 arr의 요소에서 값을 받아옴.
+// ex: arr의 1 이 콜백함수 실행 후 로직 실행, arr의 2 또한 콜백함수 실행 후 로직실행...
+// 배열 끝까지 반복
+// # 배열의 요소를 하나 하나 가져와서, 콜백함수를 실행한다 라는 의미임. (요약)
+// 반복이 돌 때마다 val에, 배열의 n번째 요소가 대입됨
+arr = [1,2,3,4,5,6];
+resultArr = arr.map(val => {
+  // 주의점 : 리턴이 없으면 안됨
+  // 3의 배수를 체크하고싶다면?
+  if(val % 3 === 0){
+    return '짝'
+  }else{
+    return val
+  }
+});
+
+console.log(arr, resultArr)
+
+class MyArr {
+  arr = [1,2,3,4,5,6];
+
+  // map 메소드의 내부구조 형식
+   map(cb) {
+    // 새로운 배열
+    const newArr = [];
+
+    for(let i = 0; i < this.arr.length; i++){
+      newArr.push(cb(this.arr[i]));
+    }
+
+    return newArr;
+  }
+
+}
+
+
+
+// Array.some()   boolean 반환함.
+// 설명 : 배열의 모든요소에 대해 콜백함수를 실행 한 후,
+// 조건에 맞는 결과가 하나라도 있으면 true, 없으면 false 를 반환
+arr = [
+  {name : '홍길동', age : 20},
+  {name : '둘리', age : 50},
+  {name : '또치', age : 45},
+];
+// item으로 item.key값 으로 접근하나봄.
+resultArr = arr.some(item => item.name === '홍길동'); // => 조건  부분에서, 해당되는게 있다면, true 아니면 false
+console.log(arr, resultArr);
+
+// map, push, pop, shift, unshift 정도를 기억해두면 충분.
+
+
+
+
+// Array.every(callback)    boolean 반환
+// 배열의 모든 요소에 대해 콜백함수를 실행한 후,
+// 모두 조건에 맞으면 true, 아니면 false를 반환
+arr = [
+  {name : '홍길동', age : 20},
+  {name : '둘리', age : 50},
+  {name : '또치', age : 45},
+];
+resultArr = arr.every(item => item.age >= 20);
+console.log(resultArr);
+
+
+
+// Array.filter(callback).   boolean이 반환된다.
+// 배열을 반환하는듯 하다.
+// 배열의 모든요소에 대해서, 콜백함수를 실행 한 후,
+// 조건에 만족한 요소만 모아서, 새로운 배열로 반환
+arr = [
+  {name : '홍길동', age : 20},
+  {name : '둘리', age : 50},
+  {name : '또치', age : 45},
+];
+resultArr = arr.filter(item => item.age < 50);
+console.log(resultArr)
+
+// 쇼핑몰의 낮은가격순, 높은가격순... 등  정렬기준에 따라 출력할때,
+// 백엔드에, 요청을 보내고, 응답을 받으면, 그 응답 받은 값을
+// map으로 출력한다.
+
+
+
+// Array.foreach(callback)    리턴 값 없음
+// 배열의 모든요소에 대해 콜백함수를 반복 실행하고 싶을 때 사용.
+arr = [
+  {name : '홍길동', age : 20},
+  {name : '둘리', age : 50},
+  {name : '또치', age : 45},
+];
+arr.forEach((val, idx) => {
+  //내가 하고싶은 처리
+  console.log(val,idx)
+
+})
+
+// for(let i = 0; i < arr.length; i++){
+//   // 내가 하고 싶은 처리
+
+// }
+
+
 // -------------------------------------------------
 
 // 배열 [2,4,5,6,9] 가 존재.
@@ -138,21 +264,21 @@ console.log(arr, resultArr)
 // break는 해당 그 구문만 빠져나온다.
 // return이 어디든 나오면, 함수 자체를 빠져나온다.
 
-const myArr = [2,4,5,6,9];
+// const myArr = [2,4,5,6,9];
 
-function myIncludes(arr1,search){
+// function myIncludes(arr1,search){
 
-  for(let i = 0; i < arr1.length; i++){
+//   for(let i = 0; i < arr1.length; i++){
 
-    if(arr1[i] == search){
-      return 'true'
-    }
+//     if(arr1[i] == search){
+//       return 'true'
+//     }
     
-  }
+//   }
 
-  return 'false'
-}
+//   return 'false'
+// }
 
 
-console.log(myIncludes(myArr,4))
+// console.log(myIncludes(myArr,4))
 

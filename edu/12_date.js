@@ -52,28 +52,3 @@ console.log(now.getHours());
 console.log(now.getMinutes());
 
 
-
-// Date.getSeconds(): number
-//  초를 정수로 반환
-console.log(now.getSeconds());
-
-// Date.getMilliseconds(): number
-console.log(now.getMilliseconds());
-
-// Date.getDay(): number
-//  오늘 요일을 정수로 반환
-//  0(일요일) ~ 6(토요일) 반환
-console.log(now.getDay());
-
-// Date.getTime(): number
-//  `1970-01-01 00:00:00` 기준으로 얼마나 흘렀는지 Unix 타임스탬프를 반환
-//  단위: 밀리초
-console.log(now.getTime());
-
-let nowFormat = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
-console.log(nowFormat);
-
-const dayjs = require('dayjs');
-
-const now2 = dayjs();
-console.log(now2.add(-1, 'day').format('YYYY-MM-DD HH:mm:ss'));

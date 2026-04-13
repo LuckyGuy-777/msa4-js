@@ -7,5 +7,6 @@
 // Node.insertBefore(newNode, referenceNode);
 const parentUl= document.querySelector('#ul')
 
-
-
+const newChild = document.createElement('li')
+newChild.textContent = '장기'
+parentUl.insertBefore(newChild,)

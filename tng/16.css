@@ -1,0 +1,12 @@
+#container{
+  width: 70px;
+  height: 70px;
+  background-color: #87ceeb;
+  position: absolute;
+}
+
+/* 투명처리 */
+.hide{
+  opacity: 0;
+}
+

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- axios 사용하기위한것. CDN 방식 -->
+  <link rel="stylesheet" href="18_AJAX.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./18_AJAX.js" defer></script>
+  <title>Document</title>
+</head>
+<body>
+  <!-- onsubmit 에 실행시켜줄 자바스크립트 함수를 입력 -->
+   <!-- ... = return false는 전송 취소하는것. -->
+  <form class="searchbox">
+    <input type="number" name="page" id="page" placeholder="페이지" required>
+    <input type="number" name="limit" id="limit" placeholder="표시 게시글 수" required>
+    <button type="submit" id="btnSearch">검색</button>
+  </form>
+  <div class="container"></div>
+</body>
+</html>

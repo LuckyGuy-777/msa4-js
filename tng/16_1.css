@@ -1,11 +1,19 @@
-#container{
-  width: 70px;
-  height: 70px;
-  background-color: #ffa500;
-  position: absolute;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* 투명처리 */
-.hide{
-  opacity: 0;
+.container {
+  position: absolute;
+  padding: 15px;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+}
+
+.busted {
+  background-color: cadetblue;
 }

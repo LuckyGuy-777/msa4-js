@@ -20,6 +20,8 @@ function setRandomPosition(){
 
   const x = Math.floor((Math.random()+1) * 300) ;
   const y = Math.floor((Math.random()+1) * 300) ;
+
+  // innerwidth, innerheight는, 화면에 보여지는 면적을 의미
   // const y = Math.random() + (window.innerHeight - 50);
 
   container.style.left = x + 'px'
